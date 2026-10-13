@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arc Engine | PPC, SEO, AIO & GEO Consulting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0F17',
+                            card: '#131924',
+                            border: '#212A3E',
+                            emerald: '#10B981',
+                            blue: '#3B82F6',
+                            cyan: '#06B6D4',
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-gradient': 'radial-gradient(circle at top, rgba(16, 185, 129, 0.12) 0%, rgba(59, 130, 246, 0.08) 35%, transparent 70%)',
+                        'accent-gradient': 'linear-gradient(135deg, #10B981 0%, #3B82F6 100%)',
+                        'glow-gradient': 'radial-gradient(600px circle at var(--x, 0px) var(--y, 0px), rgba(16, 185, 129, 0.15), transparent 40%)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0B0F17;
+            color: #F3F4F6;
+        }
+        .glass-card {
+            background: rgba(19, 25, 36, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+        .glass-card:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.15);
+        }
+        .glow-button {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #34D399 0%, #60A5FA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden">
+
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 glass-card mt-4 rounded-2xl px-6">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-accent-gradient flex items-center justify-center p-0.5 shadow-lg group-hover:scale-105 transition-transform duration-300">
+                        <div class="w-full h-full bg-brand-dark rounded-[10px] flex items-center justify-center">
+                            <i data-lucide="zap" class="w-5 h-5 text-emerald-400"></i>
+                        </div>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight text-white">ARC <span class="gradient-text">ENGINE</span></span>
+                </a>
+
+                <!-- Desktop Nav Navigation -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                    <a href="#services" class="hover:text-emerald-400 transition-colors">Services</a>
+                    <a href="#about" class="hover:text-emerald-400 transition-colors">Methodology</a>
+                    <a href="#contact" class="hover:text-emerald-400 transition-colors">Contact</a>
+                </nav>
+
+                <!-- Header CTA Button -->
+                <div class="hidden md:flex items-center">
+                    <a href="#contact" class="glow-button bg-accent-gradient text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:opacity-95 transition-all">
+                        Get in Touch
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white p-2 focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Nav -->
+        <div id="mobile-menu" class="hidden md:hidden max-w-7xl mx-auto px-4 mt-2">
+            <div class="glass-card rounded-2xl p-6 flex flex-col gap-4 border border-gray-800">
+                <a href="#services" class="mobile-link text-gray-300 hover:text-emerald-400 font-medium py-1">Services</a>
+                <a href="#about" class="mobile-link text-gray-300 hover:text-emerald-400 font-medium py-1">Methodology</a>
+                <a href="#contact" class="mobile-link text-gray-300 hover:text-emerald-400 font-medium py-1">Contact</a>
+                <a href="#contact" class="mobile-link text-center bg-accent-gradient text-white py-3 rounded-xl font-semibold text-sm mt-2">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative min-h-screen flex items-center pt-28 pb-16 bg-hero-gradient overflow-hidden">
+        <!-- Background decorative ambient circles -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="max-w-3xl mx-auto text-center space-y-8">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-emerald-500/30 text-xs font-semibold tracking-wide text-emerald-400 uppercase shadow-inner">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    Next-Gen Growth Architecture
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.15] text-white">
+                    Master Performance Marketing & <span class="gradient-text">Next-Gen Search Engine Visibility</span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-lg sm:text-xl text-gray-400 font-normal leading-relaxed max-w-2xl mx-auto">
+                    Data-driven growth consultancy bridging performance marketing with modern generative search. We scale revenue through PPC, SEO, AIO, and GEO strategies.
+                </p>
+
+                <!-- CTA Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <a href="#contact" class="w-full sm:w-auto glow-button bg-accent-gradient text-white px-8 py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 group">
+                        Book Strategy Call
+                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#services" class="w-full sm:w-auto glass-card text-gray-200 hover:text-white border border-gray-700/60 hover:border-gray-500 px-8 py-4 rounded-xl font-semibold text-base transition-all flex items-center justify-center">
+                        Explore Services
+                    </a>
+                </div>
+
+                <!-- Highlight Stats Bar -->
+                <div class="pt-12 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-gray-800/80 mt-12">
+                    <div class="text-center">
+                        <p class="text-3xl font-extrabold text-white">4.2x</p>
+                        <p class="text-xs text-gray-400 mt-1 font-medium">Average PPC ROI</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-3xl font-extrabold text-white">100%</p>
+                        <p class="text-xs text-gray-400 mt-1 font-medium">Data Transparency</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-3xl font-extrabold text-white">AI-First</p>
+                        <p class="text-xs text-gray-400 mt-1 font-medium">Optimization Engine</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-3xl font-extrabold text-white">360°</p>
+                        <p class="text-xs text-gray-400 mt-1 font-medium">Search Ecosystem</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 relative bg-brand-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Our Capabilities</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">Full-Funnel Search & Acquisition Solutions</p>
+                <p class="text-gray-400 text-sm sm:text-base">We combine traditional search tactics with modern generative AI protocols to maximize visibility and audience capture.</p>
+            </div>
+
+            <!-- Service Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1: PPC -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-2 group">
+                    <div class="space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
+                            <i data-lucide="target" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">PPC Advertising</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Data-backed campaign management across Google, Bing, and Social Ads. Algorithmic bid management and continuous conversion rate optimization.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-2 text-xs text-gray-400 border-t border-gray-800/80 pt-4">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> ROAS Optimization</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Smart Bidding Strategy</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: SEO -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-2 group">
+                    <div class="space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+                            <i data-lucide="trending-up" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Search Engine Optimization</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Deep technical SEO audits, site speed architectural fixes, and high-authority content strategy to win high-intent organic keywords.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-2 text-xs text-gray-400 border-t border-gray-800/80 pt-4">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Technical Architecture</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Keyword Dominance</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: AIO -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-2 group">
+                    <div class="space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-300">
+                            <i data-lucide="cpu" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">AI Optimization (AIO)</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Structuring enterprise data & brand assets for LLM training models. Ensuring proper indexing by ChatGPT, Claude, and Perplexity engines.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-2 text-xs text-gray-400 border-t border-gray-800/80 pt-4">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> LLM Data Formatting</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> AI Knowledge Graph Integration</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: GEO -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-2 group">
+                    <div class="space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-all duration-300">
+                            <i data-lucide="sparkles" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Generative Engine Opt. (GEO)</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Securing brand citations in AI Search Overviews (Google Search Overviews, Bing Copilot). Strategic positioning inside interactive AI summaries.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-2 text-xs text-gray-400 border-t border-gray-800/80 pt-4">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> AI Snippet Placement</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Citation & Sentiment Building</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Text Column -->
+                <div class="space-y-6">
+                    <div class="inline-block px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+                        The Arc Engine Advantage
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+                        Built for the next decade of modern search.
+                    </h2>
+                    <p class="text-gray-400 text-base leading-relaxed">
+                        Search is no longer just ten blue links. User behavior has shifted to generative summaries, conversational bots, and instant answer engines. 
+                    </p>
+                    <p class="text-gray-400 text-base leading-relaxed">
+                        At Arc Engine, we merge performance marketing, rigorous technical SEO, and next-gen AI visibility protocols to build sustainable digital distribution channels for ambitious brands.
+                    </p>
+
+                    <!-- Feature Bullet Points -->
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4">
+                            <div class="p-2 rounded-xl bg-gray-800 text-emerald-400 mt-1">
+                                <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Data & Metric-Driven Strategy</h4>
+                                <p class="text-gray-400 text-xs mt-1">No vanity metrics. Every campaign is tracked back to customer acquisition cost (CAC) and revenue growth.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="p-2 rounded-xl bg-gray-800 text-emerald-400 mt-1">
+                                <i data-lucide="cpu" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Generative AI Preparedness</h4>
+                                <p class="text-gray-400 text-xs mt-1">Future-proof your organic traffic as search transitions toward generative AI chat answers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Graphic Visual Card -->
+                <div class="relative">
+                    <div class="glass-card rounded-3xl p-8 border border-gray-800 relative z-10 shadow-2xl">
+                        <div class="flex items-center justify-between pb-6 border-b border-gray-800">
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                            </div>
+                            <span class="text-xs text-gray-500 font-mono">system_performance.log</span>
+                        </div>
+                        <div class="py-8 space-y-6">
+                            <div>
+                                <div class="flex justify-between text-xs font-mono mb-2">
+                                    <span class="text-gray-400">Search Visibility Index</span>
+                                    <span class="text-emerald-400">+184% YoY</span>
+                                </div>
+                                <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-accent-gradient w-[88%] rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs font-mono mb-2">
+                                    <span class="text-gray-400">Generative Citations (AIO/GEO)</span>
+                                    <span class="text-blue-400">Top 3 Ranking</span>
+                                </div>
+                                <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-blue-500 w-[92%] rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs font-mono mb-2">
+                                    <span class="text-gray-400">PPC Conversion Efficiency</span>
+                                    <span class="text-emerald-400">3.8x ROAS</span>
+                                </div>
+                                <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-emerald-400 w-[78%] rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 relative bg-brand-dark/80">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 sm:p-12 border border-gray-800 shadow-2xl relative">
+                
+                <div class="text-center max-w-xl mx-auto mb-10 space-y-3">
+                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Get Started</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Book Your Strategy Audit</h2>
+                    <p class="text-gray-400 text-sm">Tell us about your brand and goals. We'll analyze your search & ad positioning and reach back out within 24 hours.</p>
+                </div>
+
+                <!-- Contact Form -->
+                <form id="lead-form" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Your Name</label>
+                            <input type="text" id="name" required placeholder="Alex Morgan" 
+                                class="w-full bg-brand-dark/80 border border-gray-800 focus:border-emerald-500 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Work Email</label>
+                            <input type="email" id="email" required placeholder="alex@company.com" 
+                                class="w-full bg-brand-dark/80 border border-gray-800 focus:border-emerald-500 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none transition-colors">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="service" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Primary Service Needed</label>
+                        <select id="service" required class="w-full bg-brand-dark/80 border border-gray-800 focus:border-emerald-500 rounded-xl px-4 py-3 text-white focus:outline-none transition-colors">
+                            <option value="" disabled selected>Select a service...</option>
+                            <option value="PPC">Pay-Per-Click Advertising (PPC)</option>
+                            <option value="SEO">Search Engine Optimization (SEO)</option>
+                            <option value="AIO">AI Search Optimization (AIO)</option>
+                            <option value="GEO">Generative Engine Optimization (GEO)</option>
+                            <option value="Full Architecture">Full Next-Gen Marketing Strategy</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Project Details & Objectives</label>
+                        <textarea id="message" rows="4" required placeholder="Tell us about your current campaigns, website, and digital targets..." 
+                            class="w-full bg-brand-dark/80 border border-gray-800 focus:border-emerald-500 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none transition-colors"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full glow-button bg-accent-gradient text-white font-bold py-4 rounded-xl text-base hover:opacity-95 transition-all flex items-center justify-center gap-2">
+                        <span>Request Strategy Proposal</span>
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="glass-card bg-brand-card/90 border border-emerald-500/50 rounded-2xl p-4 shadow-2xl flex items-center gap-4 text-white">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                <i data-lucide="check-circle" class="w-6 h-6"></i>
+            </div>
+            <div>
+                <p class="font-bold text-sm">Message Sent Successfully!</p>
+                <p class="text-xs text-gray-400">Thanks for reaching out. We'll be in touch shortly.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="border-t border-gray-800 py-12 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Brand Title -->
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-accent-gradient p-0.5 flex items-center justify-center">
+                        <div class="w-full h-full bg-brand-dark rounded-[6px] flex items-center justify-center">
+                            <i data-lucide="zap" class="w-4 h-4 text-emerald-400"></i>
+                        </div>
+                    </div>
+                    <span class="text-lg font-bold text-white tracking-tight">ARC ENGINE</span>
+                </div>
+
+                <!-- Footer Text -->
+                <p class="text-xs text-gray-500 text-center md:text-left">
+                    &copy; <span id="year"></span> Arc Engine Consulting. All rights reserved. Registered domain: <span class="text-emerald-400">arcengine.co.uk</span>
+                </p>
+
+                <!-- Navigation Quick Links -->
+                <div class="flex gap-6 text-xs text-gray-400">
+                    <a href="#services" class="hover:text-white transition-colors">Services</a>
+                    <a href="#about" class="hover:text-white transition-colors">Methodology</a>
+                    <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Dynamic Copyright Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Contact Form Handling with Toast State
+        const form = document.getElementById('lead-form');
+        const toast = document.getElementById('toast');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Display Success Toast
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            // Reset Form Fields
+            form.reset();
+
+            // Hide Toast after 4 seconds
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 4000);
+        });
+
+        // Mouse Spotlight Gradient Effect on Cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--x', `${x}px`);
+                card.style.setProperty('--y', `${y}px`);
+            });
+        });
+    </script>
+</body>
+</html>
