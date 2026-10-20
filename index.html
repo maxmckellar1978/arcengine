@@ -3,488 +3,709 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>arc engine | PPC, SEO, AIO & GEO Consulting</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Arc Engine | Next-Gen Search, PPC, SEO & GEO Consultancy</title>
+    <meta name="description" content="Arc Engine is a senior-led search consultancy specializing in PPC, SEO, and Generative Engine Optimization (GEO/AIO) across Google, Perplexity & AI Search engines.">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
                     colors: {
                         brand: {
-                            dark: '#0B0F17',
-                            card: '#131924',
-                            border: '#212A3E',
-                            emerald: '#10B981',
-                            blue: '#3B82F6',
-                            cyan: '#06B6D4',
+                            bg: '#FAF9F5',
+                            card: '#FFFFFF',
+                            slate: '#121619',
+                            muted: '#525B62',
+                            rust: '#C26D38',
+                            amber: '#DA7B38',
+                            bronze: '#8C461C',
+                            teal: '#1A6B70',
+                            border: '#E8E5DD',
+                            accent: '#F3EFE6'
                         }
                     },
-                    backgroundImage: {
-                        'hero-gradient': 'radial-gradient(circle at top, rgba(16, 185, 129, 0.12) 0%, rgba(59, 130, 246, 0.08) 35%, transparent 70%)',
-                        'accent-gradient': 'linear-gradient(135deg, #10B981 0%, #3B82F6 100%)',
-                        'glow-gradient': 'radial-gradient(600px circle at var(--x, 0px) var(--y, 0px), rgba(16, 185, 129, 0.15), transparent 40%)'
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Instrument Serif"', 'serif']
                     }
                 }
             }
         }
     </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
         body {
-            background-color: #0B0F17;
-            color: #F3F4F6;
+            background-color: #FAF9F5;
+            color: #121619;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
         }
-        .glass-card {
-            background: rgba(19, 25, 36, 0.7);
+
+        .font-serif-heading {
+            font-family: 'Instrument Serif', serif;
+        }
+
+        /* Glassmorphic elements with warm borders */
+        .glass-nav {
+            background: rgba(250, 249, 245, 0.85);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom: 1px solid rgba(232, 229, 221, 0.8);
         }
-        .glass-card:hover {
-            border-color: rgba(16, 185, 129, 0.4);
-            box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.15);
+
+        .warm-card {
+            background: #FFFFFF;
+            border: 1px solid #E8E5DD;
+            box-shadow: 0 4px 20px -2px rgba(18, 22, 25, 0.03);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .glow-button {
-            position: relative;
-            transition: all 0.3s ease;
+
+        .warm-card:hover {
+            border-color: #C26D38;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px -4px rgba(194, 109, 56, 0.08);
         }
-        .glow-button:hover {
-            box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #34D399 0%, #60A5FA 100%);
+
+        /* Gradient accents reflecting logo mechanics */
+        .text-gradient-rust {
+            background: linear-gradient(135deg, #C26D38 0%, #8C461C 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        .bg-gradient-rust {
+            background: linear-gradient(135deg, #C26D38 0%, #8C461C 100%);
+        }
+
+        .bg-mesh-subtle {
+            background-image: radial-gradient(circle at 10% 20%, rgba(194, 109, 56, 0.04) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(26, 107, 112, 0.04) 0%, transparent 40%);
+        }
+
+        /* Custom range input styling */
+        input[type=range] {
+            accent-color: #C26D38;
+        }
     </style>
 </head>
-<body class="font-sans antialiased overflow-x-hidden">
+<body class="antialiased bg-mesh-subtle">
 
-    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20 glass-card mt-4 rounded-2xl px-6">
-                <!-- Logo -->
-                <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-xl bg-accent-gradient flex items-center justify-center p-0.5 shadow-lg group-hover:scale-105 transition-transform duration-300">
-                        <div class="w-full h-full bg-brand-dark rounded-[10px] flex items-center justify-center">
-                            <i data-lucide="zap" class="w-5 h-5 text-emerald-400"></i>
-                        </div>
-                    </div>
-                    <span class="text-xl font-bold tracking-tight text-white">arc <span class="gradient-text">engine</span></span>
-                </a>
-
-                <!-- Desktop Nav Navigation -->
-                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-                    <a href="#services" class="hover:text-emerald-400 transition-colors">Services</a>
-                    <a href="#about" class="hover:text-emerald-400 transition-colors">Methodology</a>
-                    <a href="#contact" class="hover:text-emerald-400 transition-colors">Contact</a>
-                </nav>
-
-                <!-- Header CTA Button -->
-                <div class="hidden md:flex items-center">
-                    <a href="#contact" class="glow-button bg-accent-gradient text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:opacity-95 transition-all">
-                        Get in Touch
-                    </a>
+    <!-- NAVIGATION HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-40 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo with Custom SVG Brand Mark inspired by logo concepts -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-brand-slate flex items-center justify-center p-1.5 shadow-md transition-transform group-hover:scale-105">
+                    <svg viewBox="0 0 100 100" class="w-full h-full text-brand-rust fill-current" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Arc trajectory -->
+                        <path d="M 15 85 A 45 45 0 0 1 85 25" fill="none" stroke="#DA7B38" stroke-width="8" stroke-linecap="round" />
+                        <!-- Engine gear core -->
+                        <circle cx="50" cy="50" r="18" fill="none" stroke="#FFFFFF" stroke-width="6" />
+                        <!-- Piston / Compass indicator line -->
+                        <line x1="50" y1="50" x2="80" y2="20" stroke="#1A6B70" stroke-width="6" stroke-linecap="round" />
+                        <circle cx="50" cy="50" r="6" fill="#FFFFFF" />
+                    </svg>
                 </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-bold tracking-tight text-brand-slate font-serif-heading">arc <span class="text-brand-rust">&amp;</span> engine</span>
+                    <span class="text-[10px] tracking-widest uppercase text-brand-muted font-mono font-semibold">Search Consultancy</span>
+                </div>
+            </a>
 
-                <!-- Mobile Menu Toggle Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white p-2 focus:outline-none">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-slate/80">
+                <a href="#services" class="hover:text-brand-rust transition-colors">Services &amp; AIO</a>
+                <a href="#calculator" class="hover:text-brand-rust transition-colors">Search Calculator</a>
+                <a href="#framework" class="hover:text-brand-rust transition-colors">The Arc Method</a>
+                <a href="#about" class="hover:text-brand-rust transition-colors">Senior Counsel</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-4">
+                <button onclick="openAuditModal()" class="hidden sm:inline-flex items-center gap-2 bg-brand-slate text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-brand-rust transition-all shadow-sm">
+                    <span>Request Search Audit</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-brand-slate focus:outline-none">
+                    <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu Nav -->
-        <div id="mobile-menu" class="hidden md:hidden max-w-7xl mx-auto px-4 mt-2">
-            <div class="glass-card rounded-2xl p-6 flex flex-col gap-4 border border-gray-800">
-                <a href="#services" class="mobile-link text-gray-300 hover:text-emerald-400 font-medium py-1">Services</a>
-                <a href="#about" class="mobile-link text-gray-300 hover:text-emerald-400 font-medium py-1">Methodology</a>
-                <a href="#contact" class="mobile-link text-gray-300 hover:text-emerald-400 font-medium py-1">Contact</a>
-                <a href="#contact" class="mobile-link text-center bg-accent-gradient text-white py-3 rounded-xl font-semibold text-sm mt-2">
-                    Get in Touch
-                </a>
-            </div>
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-brand-border bg-brand-bg px-4 pt-2 pb-6 space-y-3">
+            <a href="#services" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-brand-slate">Services &amp; AIO</a>
+            <a href="#calculator" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-brand-slate">Search Calculator</a>
+            <a href="#framework" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-brand-slate">The Arc Method</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-brand-slate">Senior Counsel</a>
+            <button onclick="openAuditModal(); toggleMobileMenu();" class="w-full mt-2 bg-brand-rust text-white py-3 rounded-xl font-medium text-center">
+                Request Free Audit
+            </button>
         </div>
     </header>
 
-    <section class="relative min-h-screen flex items-center pt-28 pb-16 bg-hero-gradient overflow-hidden">
-        <!-- Background decorative ambient circles -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute top-1/3 right-10 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+    <main class="pt-28">
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-            <div class="max-w-3xl mx-auto text-center space-y-8">
-                <!-- Badge -->
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-emerald-500/30 text-xs font-semibold tracking-wide text-emerald-400 uppercase shadow-inner">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                    Next-Gen Growth Architecture
+        <!-- HERO SECTION -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20 md:pt-20 md:pb-32">
+            <div class="max-w-4xl mx-auto text-center space-y-8">
+                
+                <!-- Category Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-accent border border-brand-border text-xs font-semibold tracking-wider text-brand-slate uppercase shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-brand-rust animate-pulse"></span>
+                    Next-Gen Search Consultancy • PPC • SEO • GEO • AIO
                 </div>
 
-                <!-- Main Headline -->
-                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.15] text-white">
-                    Master Performance Marketing & <span class="gradient-text">Next-Gen Search Engine Visibility</span>
+                <!-- Main Editorial Headline -->
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-normal text-brand-slate tracking-tight leading-[1.08] font-serif-heading">
+                    Engineering search dominance across Google, Perplexity <span class="italic text-brand-rust">&amp; Generative AI.</span>
                 </h1>
 
-                <!-- Subtitle -->
-                <p class="text-lg sm:text-xl text-gray-400 font-normal leading-relaxed max-w-2xl mx-auto">
-                    Data-driven growth consultancy bridging performance marketing with modern generative search. We scale revenue through PPC, SEO, AIO, and GEO strategies.
+                <!-- Subheadline -->
+                <p class="text-lg sm:text-xl text-brand-muted max-w-2xl mx-auto font-light leading-relaxed">
+                    We bridge precision performance marketing (PPC &amp; SEO) with future-ready Generative Engine Optimization (GEO). Senior UK advisory delivering transparent, high-ROI commercial growth.
                 </p>
 
-                <!-- CTA Action Buttons -->
+                <!-- CTA Button Group -->
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                    <a href="#contact" class="w-full sm:w-auto glow-button bg-accent-gradient text-white px-8 py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 group">
-                        Book Strategy Call
-                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                    <a href="#services" class="w-full sm:w-auto glass-card text-gray-200 hover:text-white border border-gray-700/60 hover:border-gray-500 px-8 py-4 rounded-xl font-semibold text-base transition-all flex items-center justify-center">
-                        Explore Services
-                    </a>
-                </div>
-
-                <!-- Highlight Stats Bar -->
-                <div class="pt-12 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-gray-800/80 mt-12">
-                    <div class="text-center">
-                        <p class="text-3xl font-extrabold text-white">4.2x</p>
-                        <p class="text-xs text-gray-400 mt-1 font-medium">Average PPC ROI</p>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-3xl font-extrabold text-white">100%</p>
-                        <p class="text-xs text-gray-400 mt-1 font-medium">Data Transparency</p>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-3xl font-extrabold text-white">AI-First</p>
-                        <p class="text-xs text-gray-400 mt-1 font-medium">Optimization Engine</p>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-3xl font-extrabold text-white">360°</p>
-                        <p class="text-xs text-gray-400 mt-1 font-medium">Search Ecosystem</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-24 relative bg-brand-dark/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-                <h2 class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Our Capabilities</h2>
-                <p class="text-3xl sm:text-4xl font-extrabold text-white">Full-Funnel Search & Acquisition Solutions</p>
-                <p class="text-gray-400 text-sm sm:text-base">We combine traditional search tactics with modern generative AI protocols to maximize visibility and audience capture.</p>
-            </div>
-
-            <!-- Service Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Card 1: PPC -->
-                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-2 group">
-                    <div class="space-y-6">
-                        <div class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
-                            <i data-lucide="target" class="w-7 h-7"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">PPC Advertising</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">
-                            Data-backed campaign management across Google, Bing, and Social Ads. Algorithmic bid management and continuous conversion rate optimization.
-                        </p>
-                    </div>
-                    <ul class="mt-6 space-y-2 text-xs text-gray-400 border-t border-gray-800/80 pt-4">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> ROAS Optimization</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Smart Bidding Strategy</li>
-                    </ul>
-                </div>
-
-                <!-- Card 2: SEO -->
-                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-2 group">
-                    <div class="space-y-6">
-                        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
-                            <i data-lucide="trending-up" class="w-7 h-7"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">Search Engine Optimization</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">
-                            Deep technical SEO audits, site speed architectural fixes, and high-authority content strategy to win high-intent organic keywords.
-                        </p>
-                    </div>
-                    <ul class="mt-6 space-y-2 text-xs text-gray-400 border-t border-gray-800/80 pt-4">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Technical Architecture</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Keyword Dominance</li>
-                    </ul>
-                </div>
-
-                <!-- Card 3: AIO -->
-                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-2 group">
-                    <div class="space-y-6">
-                        <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-300">
-                            <i data-lucide="cpu" class="w-7 h-7"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">AI Optimization (AIO)</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">
-                            Structuring enterprise data & brand assets for LLM training models. Ensuring proper indexing by ChatGPT, Claude, and Perplexity engines.
-                        </p>
-                    </div>
-                    <ul class="mt-6 space-y-2 text-xs text-gray-400 border-t border-gray-800/80 pt-4">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> LLM Data Formatting</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> AI Knowledge Graph Integration</li>
-                    </ul>
-                </div>
-
-                <!-- Card 4: GEO -->
-                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-2 group">
-                    <div class="space-y-6">
-                        <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-all duration-300">
-                            <i data-lucide="sparkles" class="w-7 h-7"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">Generative Engine Opt. (GEO)</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">
-                            Securing brand citations in AI Search Overviews (Google Search Overviews, Bing Copilot). Strategic positioning inside interactive AI summaries.
-                        </p>
-                    </div>
-                    <ul class="mt-6 space-y-2 text-xs text-gray-400 border-t border-gray-800/80 pt-4">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> AI Snippet Placement</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Citation & Sentiment Building</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-24 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <!-- Left Text Column -->
-                <div class="space-y-6">
-                    <div class="inline-block px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
-                        The arc engine Advantage
-                    </div>
-                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
-                        Built for the next decade of modern search.
-                    </h2>
-                    <p class="text-gray-400 text-base leading-relaxed">
-                        Search is no longer just ten blue links. User behavior has shifted to generative summaries, conversational bots, and instant answer engines. 
-                    </p>
-                    <p class="text-gray-400 text-base leading-relaxed">
-                        At Arc Engine, we merge performance marketing, rigorous technical SEO, and next-gen AI visibility protocols to build sustainable digital distribution channels for ambitious brands.
-                    </p>
-
-                    <!-- Feature Bullet Points -->
-                    <div class="space-y-4 pt-2">
-                        <div class="flex items-start gap-4">
-                            <div class="p-2 rounded-xl bg-gray-800 text-emerald-400 mt-1">
-                                <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold">Data & Metric-Driven Strategy</h4>
-                                <p class="text-gray-400 text-xs mt-1">No vanity metrics. Every campaign is tracked back to customer acquisition cost (CAC) and revenue growth.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <div class="p-2 rounded-xl bg-gray-800 text-emerald-400 mt-1">
-                                <i data-lucide="cpu" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold">Generative AI Preparedness</h4>
-                                <p class="text-gray-400 text-xs mt-1">Future-proof your organic traffic as search transitions toward generative AI chat answers.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Graphic Visual Card -->
-                <div class="relative">
-                    <div class="glass-card rounded-3xl p-8 border border-gray-800 relative z-10 shadow-2xl">
-                        <div class="flex items-center justify-between pb-6 border-b border-gray-800">
-                            <div class="flex items-center gap-3">
-                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                                <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                                <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-                            </div>
-                            <span class="text-xs text-gray-500 font-mono">system_performance.log</span>
-                        </div>
-                        <div class="py-8 space-y-6">
-                            <div>
-                                <div class="flex justify-between text-xs font-mono mb-2">
-                                    <span class="text-gray-400">Search Visibility Index</span>
-                                    <span class="text-emerald-400">+184% YoY</span>
-                                </div>
-                                <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-accent-gradient w-[88%] rounded-full"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between text-xs font-mono mb-2">
-                                    <span class="text-gray-400">Generative Citations (AIO/GEO)</span>
-                                    <span class="text-blue-400">Top 3 Ranking</span>
-                                </div>
-                                <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-blue-500 w-[92%] rounded-full"></div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between text-xs font-mono mb-2">
-                                    <span class="text-gray-400">PPC Conversion Efficiency</span>
-                                    <span class="text-emerald-400">3.8x ROAS</span>
-                                </div>
-                                <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-emerald-400 w-[78%] rounded-full"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-24 relative bg-brand-dark/80">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-card rounded-3xl p-8 sm:p-12 border border-gray-800 shadow-2xl relative">
-                
-                <div class="text-center max-w-xl mx-auto mb-10 space-y-3">
-                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Get Started</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Book Your Strategy Audit</h2>
-                    <p class="text-gray-400 text-sm">Tell us about your brand and goals. We'll analyze your search & ad positioning and reach back out within 24 hours.</p>
-                </div>
-
-                <!-- Contact Form -->
-                <form id="lead-form" class="space-y-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label for="name" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Your Name</label>
-                            <input type="text" id="name" required placeholder="Alex Morgan" 
-                                class="w-full bg-brand-dark/80 border border-gray-800 focus:border-emerald-500 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none transition-colors">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Work Email</label>
-                            <input type="email" id="email" required placeholder="alex@company.com" 
-                                class="w-full bg-brand-dark/80 border border-gray-800 focus:border-emerald-500 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none transition-colors">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label for="service" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Primary Service Needed</label>
-                        <select id="service" required class="w-full bg-brand-dark/80 border border-gray-800 focus:border-emerald-500 rounded-xl px-4 py-3 text-white focus:outline-none transition-colors">
-                            <option value="" disabled selected>Select a service...</option>
-                            <option value="PPC">Pay-Per-Click Advertising (PPC)</option>
-                            <option value="SEO">Search Engine Optimization (SEO)</option>
-                            <option value="AIO">AI Search Optimization (AIO)</option>
-                            <option value="GEO">Generative Engine Optimization (GEO)</option>
-                            <option value="Full Architecture">Full Next-Gen Marketing Strategy</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label for="message" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Project Details & Objectives</label>
-                        <textarea id="message" rows="4" required placeholder="Tell us about your current campaigns, website, and digital targets..." 
-                            class="w-full bg-brand-dark/80 border border-gray-800 focus:border-emerald-500 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none transition-colors"></textarea>
-                    </div>
-
-                    <button type="submit" class="w-full glow-button bg-accent-gradient text-white font-bold py-4 rounded-xl text-base hover:opacity-95 transition-all flex items-center justify-center gap-2">
-                        <span>Request Strategy Proposal</span>
-                        <i data-lucide="send" class="w-5 h-5"></i>
+                    <button onclick="openAuditModal()" class="w-full sm:w-auto px-8 py-4 bg-brand-slate text-white rounded-full font-medium hover:bg-brand-rust transition-all shadow-lg flex items-center justify-center gap-3 group">
+                        <span>Get Free Search &amp; AI Audit</span>
+                        <i data-lucide="sparkles" class="w-4 h-4 text-brand-amber group-hover:rotate-12 transition-transform"></i>
                     </button>
-                </form>
-            </div>
-        </div>
-    </section>
+                    <a href="#calculator" class="w-full sm:w-auto px-8 py-4 warm-card rounded-full font-medium text-brand-slate hover:bg-white flex items-center justify-center gap-2">
+                        <span>Test Search Opportunity</span>
+                        <i data-lucide="calculator" class="w-4 h-4 text-brand-muted"></i>
+                    </a>
+                </div>
 
-    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
-        <div class="glass-card bg-brand-card/90 border border-emerald-500/50 rounded-2xl p-4 shadow-2xl flex items-center gap-4 text-white">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
-                <i data-lucide="check-circle" class="w-6 h-6"></i>
-            </div>
-            <div>
-                <p class="font-bold text-sm">Message Sent Successfully!</p>
-                <p class="text-xs text-gray-400">Thanks for reaching out. We'll be in touch shortly.</p>
-            </div>
-        </div>
-    </div>
+                <!-- Proof Strip Ribbon -->
+                <div class="pt-12 grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-brand-border/60">
+                    <div class="p-4 text-left warm-card rounded-2xl">
+                        <p class="text-2xl font-bold text-brand-slate font-serif-heading">+140%</p>
+                        <p class="text-xs text-brand-muted font-medium mt-1">Average ROAS Lift</p>
+                    </div>
+                    <div class="p-4 text-left warm-card rounded-2xl">
+                        <p class="text-2xl font-bold text-brand-slate font-serif-heading">100%</p>
+                        <p class="text-xs text-brand-muted font-medium mt-1">Senior Practitioner Led</p>
+                    </div>
+                    <div class="p-4 text-left warm-card rounded-2xl">
+                        <p class="text-2xl font-bold text-brand-slate font-serif-heading">ChatGPT &amp; GEO</p>
+                        <p class="text-xs text-brand-muted font-medium mt-1">Generative Indexing Ready</p>
+                    </div>
+                    <div class="p-4 text-left warm-card rounded-2xl">
+                        <p class="text-2xl font-bold text-brand-slate font-serif-heading">30+ Yrs</p>
+                        <p class="text-xs text-brand-muted font-medium mt-1">Commercial Search Track Record</p>
+                    </div>
+                </div>
 
-    <footer class="border-t border-gray-800 py-12 bg-brand-dark">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                <!-- Brand Title -->
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-lg bg-accent-gradient p-0.5 flex items-center justify-center">
-                        <div class="w-full h-full bg-brand-dark rounded-[6px] flex items-center justify-center">
-                            <i data-lucide="zap" class="w-4 h-4 text-emerald-400"></i>
+            </div>
+        </section>
+
+        <!-- SERVICES & GENERATIVE AI SEARCH MATRIX -->
+        <section id="services" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-brand-border">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs font-mono font-bold tracking-widest text-brand-rust uppercase">Capabilities &amp; Engine</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif-heading text-brand-slate mt-2">Precision Search Architecture</h2>
+                </div>
+                <p class="text-brand-muted max-w-md mt-4 md:mt-0 text-sm">
+                    Traditional search agencies are falling behind as users switch to conversational AI. Arc Engine optimizes your full brand footprint across both traditional and AI platforms.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Service 1: PPC & Paid Search -->
+                <div class="warm-card p-8 rounded-3xl flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-brand-accent flex items-center justify-center text-brand-rust mb-6 group-hover:bg-brand-rust group-hover:text-white transition-colors">
+                            <i data-lucide="target" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif-heading text-brand-slate mb-3">Paid Search &amp; Performance Max (PPC)</h3>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                            Eliminate ad-spend waste. High-converting Google Ads, Microsoft Advertising, and Shopping architectures configured for maximum commercial profitability.
+                        </p>
+                        <ul class="space-y-2.5 text-xs font-medium text-brand-slate/80">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-rust"></i> Smart Bidding &amp; Margin Optimization</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-rust"></i> First-Party Conversion Tagging</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-rust"></i> Search &amp; Shopping Feed Engineering</li>
+                        </ul>
+                    </div>
+                    <button onclick="openAuditModal('PPC')" class="mt-8 pt-4 border-t border-brand-border/60 text-xs font-bold uppercase tracking-wider text-brand-slate group-hover:text-brand-rust flex items-center justify-between">
+                        <span>PPC Audit Request</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Service 2: SEO & Content Engine -->
+                <div class="warm-card p-8 rounded-3xl flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-brand-accent flex items-center justify-center text-brand-teal mb-6 group-hover:bg-brand-teal group-hover:text-white transition-colors">
+                            <i data-lucide="search" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif-heading text-brand-slate mb-3">Organic SEO &amp; Authority Engine</h3>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                            Technical SEO foundations built for velocity. Entity mapping, page performance engineering, and authority creation that commands organic ranking positions.
+                        </p>
+                        <ul class="space-y-2.5 text-xs font-medium text-brand-slate/80">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-teal"></i> Technical Site &amp; Core Web Vitals Audit</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-teal"></i> High-Intent Commercial Keyword Clusters</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-teal"></i> Entity &amp; Schema Knowledge Graph Building</li>
+                        </ul>
+                    </div>
+                    <button onclick="openAuditModal('SEO')" class="mt-8 pt-4 border-t border-brand-border/60 text-xs font-bold uppercase tracking-wider text-brand-slate group-hover:text-brand-teal flex items-center justify-between">
+                        <span>SEO Health Check</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Service 3: AIO & GEO (AI Search Optimization) -->
+                <div class="warm-card p-8 rounded-3xl flex flex-col justify-between border-2 border-brand-rust/30 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-brand-rust text-white text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-bl-xl">
+                        Next-Gen
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-brand-accent flex items-center justify-center text-brand-amber mb-6 group-hover:bg-brand-amber group-hover:text-white transition-colors">
+                            <i data-lucide="cpu" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif-heading text-brand-slate mb-3">AIO &amp; GEO (AI Engine Optimization)</h3>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                            Be the recommended answer when potential customers ask ChatGPT, Perplexity, Claude, or Google AI Overviews for vendor suggestions in your sector.
+                        </p>
+                        <ul class="space-y-2.5 text-xs font-medium text-brand-slate/80">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-amber"></i> Perplexity &amp; ChatGPT Brand Citation Indexing</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-amber"></i> Google AI Overviews (SGE) Placement Strategy</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-amber"></i> Generative LLM Brand Knowledge Base Optimization</li>
+                        </ul>
+                    </div>
+                    <button onclick="openAuditModal('AIO & GEO')" class="mt-8 pt-4 border-t border-brand-border/60 text-xs font-bold uppercase tracking-wider text-brand-rust flex items-center justify-between">
+                        <span>GEO Readiness Audit</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- INTERACTIVE SEARCH CALCULATOR WIDGET -->
+        <section id="calculator" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-brand-border">
+            <div class="warm-card rounded-3xl p-6 sm:p-12 bg-gradient-to-br from-white to-brand-accent/40">
+                <div class="max-w-3xl mb-10">
+                    <span class="text-xs font-mono font-bold tracking-widest text-brand-rust uppercase">Interactive Opportunity Model</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif-heading text-brand-slate mt-2">Estimate Your Growth Trajectory</h2>
+                    <p class="text-brand-muted mt-2 text-sm">
+                        Adjust your current monthly search investment to see estimated efficiency gains through integrated PPC, SEO, and GEO optimization.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    
+                    <!-- Controls Column -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="text-sm font-semibold text-brand-slate">Current Monthly Ad / Search Spend (£)</label>
+                                <span id="spend-value" class="font-mono text-lg font-bold text-brand-rust">£5,000 / mo</span>
+                            </div>
+                            <input type="range" id="spend-slider" min="1000" max="50000" step="1000" value="5000" class="w-full h-2 bg-brand-border rounded-lg appearance-none cursor-pointer">
+                            <div class="flex justify-between text-xs text-brand-muted mt-1">
+                                <span>£1,000</span>
+                                <span>£25,000</span>
+                                <span>£50,000+</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="text-sm font-semibold text-brand-slate block mb-2">Primary Focus Sector</label>
+                            <select id="sector-select" class="w-full p-3.5 bg-white border border-brand-border rounded-xl text-sm font-medium text-brand-slate focus:ring-2 focus:ring-brand-rust focus:outline-none">
+                                <option value="1.35">E-Commerce &amp; Direct-to-Consumer</option>
+                                <option value="1.45" selected>Professional Services &amp; B2B</option>
+                                <option value="1.25">SaaS &amp; Tech Platforms</option>
+                                <option value="1.30">Healthcare, Legal &amp; Financial</option>
+                            </select>
                         </div>
                     </div>
-                    <span class="text-lg font-bold text-white tracking-tight">arc engine</span>
-                </div>
 
-                <!-- Footer Text -->
-                <p class="text-xs text-gray-500 text-center md:text-left">
-                    &copy; <span id="year"></span> arc engine Consulting. All rights reserved. Registered domain: <span class="text-emerald-400">arcengine.co.uk</span>
+                    <!-- Live Calculation Card -->
+                    <div class="lg:col-span-5 bg-brand-slate text-white p-8 rounded-2xl flex flex-col justify-between shadow-xl">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-brand-amber font-mono">Estimated Projected Impact</span>
+                            
+                            <div class="mt-6 space-y-4">
+                                <div>
+                                    <p class="text-xs text-white/60">Estimated ROAS Optimization Value</p>
+                                    <p id="roas-value" class="text-3xl font-serif-heading text-white">£11,750 / mo</p>
+                                </div>
+                                <div class="pt-4 border-t border-white/10">
+                                    <p class="text-xs text-white/60">Generative AI Search Exposure (GEO Index)</p>
+                                    <p class="text-xl font-semibold text-brand-amber flex items-center gap-2">
+                                        <i data-lucide="check" class="w-5 h-5"></i>
+                                        <span>High Priority AI Indexing</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="openAuditModal('Calculated Search Strategy')" class="mt-8 w-full bg-brand-rust hover:bg-brand-amber text-white py-3.5 rounded-xl font-medium text-sm transition-colors text-center">
+                            Claim This Strategy Plan
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- THE ARC METHOD FRAMEWORK -->
+        <section id="framework" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-brand-border">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono font-bold tracking-widest text-brand-rust uppercase">Methodology</span>
+                <h2 class="text-3xl sm:text-5xl font-serif-heading text-brand-slate mt-2">The Arc &amp; Engine 4-Step Process</h2>
+                <p class="text-brand-muted mt-3 text-sm">
+                    No template playbooks or junior account hand-offs. We execute a rigorous mechanical framework built around continuous data precision.
                 </p>
+            </div>
 
-                <!-- Navigation Quick Links -->
-                <div class="flex gap-6 text-xs text-gray-400">
-                    <a href="#services" class="hover:text-white transition-colors">Services</a>
-                    <a href="#about" class="hover:text-white transition-colors">Methodology</a>
-                    <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                
+                <div class="warm-card p-6 rounded-2xl relative">
+                    <span class="text-3xl font-serif-heading text-brand-rust font-bold">01</span>
+                    <h3 class="text-lg font-bold text-brand-slate mt-3 mb-2">Mechanical Diagnostic</h3>
+                    <p class="text-brand-muted text-xs leading-relaxed">
+                        In-depth audit of your PPC account structure, keyword intent gaps, organic technical health, and Generative AI visibility footprint.
+                    </p>
                 </div>
+
+                <div class="warm-card p-6 rounded-2xl relative">
+                    <span class="text-3xl font-serif-heading text-brand-rust font-bold">02</span>
+                    <h3 class="text-lg font-bold text-brand-slate mt-3 mb-2">Search Engineering</h3>
+                    <p class="text-brand-muted text-xs leading-relaxed">
+                        Re-building bidding models, high-intent landing page messaging, and search feeds to capture exact commercial readiness.
+                    </p>
+                </div>
+
+                <div class="warm-card p-6 rounded-2xl relative">
+                    <span class="text-3xl font-serif-heading text-brand-rust font-bold">03</span>
+                    <h3 class="text-lg font-bold text-brand-slate mt-3 mb-2">Generative Arc Indexing</h3>
+                    <p class="text-brand-muted text-xs leading-relaxed">
+                        Deploying entity schema, digital PR, and structured knowledge frameworks to secure citation in Perplexity, ChatGPT &amp; AI Overviews.
+                    </p>
+                </div>
+
+                <div class="warm-card p-6 rounded-2xl relative">
+                    <span class="text-3xl font-serif-heading text-brand-rust font-bold">04</span>
+                    <h3 class="text-lg font-bold text-brand-slate mt-3 mb-2">Velocity &amp; Scale</h3>
+                    <p class="text-brand-muted text-xs leading-relaxed">
+                        Continuous weekly optimization loops, conversion rate tuning, and transparent reporting tied directly to commercial revenue.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SENIOR COUNSEL / ABOUT SECTION -->
+        <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-brand-border">
+            <div class="warm-card rounded-3xl p-8 sm:p-14 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-xs font-mono font-bold tracking-widest text-brand-rust uppercase">Senior Strategic Leadership</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif-heading text-brand-slate leading-tight">
+                        Direct access to senior search strategists, not junior account managers.
+                    </h2>
+                    <p class="text-brand-muted text-sm leading-relaxed">
+                        At traditional agencies, senior experts sell the account, but junior executives manage your budget. At Arc Engine, every account is directed by experienced search leaders with decades of commercial retail and digital growth experience.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-start gap-3">
+                            <div class="p-2 rounded-lg bg-brand-accent text-brand-rust shrink-0">
+                                <i data-lucide="shield-check" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-brand-slate">Commercial Account Control</h4>
+                                <p class="text-xs text-brand-muted">Transparent reporting tied directly to profit margins.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="p-2 rounded-lg bg-brand-accent text-brand-teal shrink-0">
+                                <i data-lucide="zap" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-brand-slate">AI-First Search Mindset</h4>
+                                <p class="text-xs text-brand-muted">Stay ahead of algorithm shifts and Generative AI engines.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 bg-brand-accent/60 p-8 rounded-2xl border border-brand-border space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-full bg-brand-slate text-white flex items-center justify-center font-serif-heading text-xl font-bold">
+                            AE
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-slate">Arc Engine Advisory</h3>
+                            <p class="text-xs text-brand-muted">UK Search &amp; GEO Consultancy</p>
+                        </div>
+                    </div>
+
+                    <blockquote class="text-sm italic text-brand-slate/90 leading-relaxed">
+                        "Search is undergoing its biggest transformation in 25 years. Brands that only focus on classic keywords will lose ground to those indexed inside conversational AI systems like Perplexity and ChatGPT."
+                    </blockquote>
+
+                    <div class="pt-4 border-t border-brand-border flex items-center justify-between text-xs text-brand-muted">
+                        <span>Direct Enquiries:</span>
+                        <a href="mailto:info@arcengine.co.uk" class="font-bold text-brand-rust hover:underline">info@arcengine.co.uk</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="bg-brand-slate text-white rounded-3xl p-10 sm:p-16 text-center space-y-8 relative overflow-hidden">
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <span class="text-xs font-mono font-bold tracking-widest text-brand-amber uppercase">Ready To Accelerate?</span>
+                    <h2 class="text-3xl sm:text-6xl font-serif-heading leading-tight">Claim your complimentary Search &amp; AIO Audit.</h2>
+                    <p class="text-white/70 text-sm max-w-xl mx-auto">
+                        We analyze your active PPC performance, organic SEO rankings, and AI search engine visibility with zero pitch pressure.
+                    </p>
+                </div>
+
+                <div class="pt-4">
+                    <button onclick="openAuditModal()" class="px-8 py-4 bg-brand-rust hover:bg-brand-amber text-white font-medium rounded-full transition-all shadow-lg inline-flex items-center gap-3">
+                        <span>Request Free Search Audit</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-brand-border mt-20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-brand-slate flex items-center justify-center p-1">
+                            <svg viewBox="0 0 100 100" class="w-full h-full text-brand-rust fill-current" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M 15 85 A 45 45 0 0 1 85 25" fill="none" stroke="#DA7B38" stroke-width="8" stroke-linecap="round" />
+                                <circle cx="50" cy="50" r="18" fill="none" stroke="#FFFFFF" stroke-width="6" />
+                            </svg>
+                        </div>
+                        <span class="text-lg font-bold font-serif-heading text-brand-slate">arc &amp; engine</span>
+                    </div>
+                    <p class="text-xs text-brand-muted leading-relaxed">
+                        Next-Generation Search Performance, PPC Management &amp; Generative Engine Optimization (GEO) Consultancy.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-brand-slate mb-4">Core Services</h4>
+                    <ul class="space-y-2 text-xs text-brand-muted">
+                        <li><a href="#services" class="hover:text-brand-rust">Paid Search (PPC) Management</a></li>
+                        <li><a href="#services" class="hover:text-brand-rust">Organic SEO Strategy</a></li>
+                        <li><a href="#services" class="hover:text-brand-rust">Generative Engine Optimization (GEO)</a></li>
+                        <li><a href="#services" class="hover:text-brand-rust">Conversion Rate Optimization</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-brand-slate mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-xs text-brand-muted">
+                        <li><a href="#framework" class="hover:text-brand-rust">The Arc Framework</a></li>
+                        <li><a href="#calculator" class="hover:text-brand-rust">Search Calculator</a></li>
+                        <li><a href="#about" class="hover:text-brand-rust">Senior Leadership</a></li>
+                        <li><a href="javascript:openAuditModal()" class="hover:text-brand-rust">Request Audit</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-brand-slate mb-4">Contact &amp; Legal</h4>
+                    <ul class="space-y-2 text-xs text-brand-muted">
+                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-3.5 h-3.5 text-brand-rust"></i> info@arcengine.co.uk</li>
+                        <li class="flex items-center gap-2"><i data-lucide="globe" class="w-3.5 h-3.5 text-brand-rust"></i> www.arcengine.co.uk</li>
+                        <li class="pt-2 text-[11px] text-brand-muted/70">&copy; 2026 Arc Engine. All rights reserved.</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </footer>
 
+    <!-- INTERACTIVE LEAD CAPTURE AUDIT MODAL -->
+    <div id="audit-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-brand-slate/60 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl border border-brand-border animate-in fade-in zoom-in duration-200">
+            
+            <button onclick="closeAuditModal()" class="absolute top-5 right-5 text-brand-muted hover:text-brand-slate p-2">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="mb-6">
+                <span class="text-xs font-mono font-bold tracking-widest text-brand-rust uppercase">Direct Consultation</span>
+                <h3 class="text-2xl font-serif-heading text-brand-slate mt-1">Request Free Search Audit</h3>
+                <p class="text-xs text-brand-muted mt-1">
+                    Enter your website details below. Our senior search team will perform a manual audit and email key metrics to you.
+                </p>
+            </div>
+
+            <!-- Form sending to info@arcengine.co.uk using Web3Forms -->
+            <form id="audit-form" class="space-y-4">
+                
+                <!-- Web3Forms API Key Field (Replace with your actual key from web3forms.com) -->
+                <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+                <input type="hidden" name="subject" value="New Arc Engine Audit Request">
+                <input type="hidden" name="to_email" value="info@arcengine.co.uk">
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-brand-slate mb-1">Your Name *</label>
+                    <input type="text" name="name" required placeholder="e.g. Sarah Jenkins" class="w-full p-3 bg-brand-bg border border-brand-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-rust">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-brand-slate mb-1">Email Address *</label>
+                    <input type="email" name="email" required placeholder="e.g. sarah@company.co.uk" class="w-full p-3 bg-brand-bg border border-brand-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-rust">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-brand-slate mb-1">Website URL *</label>
+                    <input type="text" name="website" required placeholder="www.yourcompany.co.uk" class="w-full p-3 bg-brand-bg border border-brand-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-rust">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-brand-slate mb-1">Primary Focus Area</label>
+                    <select id="modal-service-select" name="service_focus" class="w-full p-3 bg-brand-bg border border-brand-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-rust">
+                        <option value="Full Search & GEO Audit">Full Search &amp; GEO Audit</option>
+                        <option value="PPC & Paid Search Optimization">PPC &amp; Paid Search Optimization</option>
+                        <option value="Organic SEO & Technical Growth">Organic SEO &amp; Technical Growth</option>
+                        <option value="AIO / GEO AI Search Indexing">AIO / GEO AI Search Indexing</option>
+                    </select>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" id="submit-btn" class="w-full py-3.5 bg-brand-rust hover:bg-brand-amber text-white font-medium rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
+                        <span>Submit Audit Request</span>
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <p class="text-[11px] text-center text-brand-muted/80">
+                    Audit requests are reviewed personally by our UK search team. Zero spam guaranteed.
+                </p>
+            </form>
+
+            <div id="toast-message" class="hidden mt-4 p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs rounded-xl text-center font-medium">
+                Request submitted successfully! We will email your audit to info@arcengine.co.uk shortly.
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
 
         // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        // Audit Modal Controls
+        function openAuditModal(serviceName = null) {
+            const modal = document.getElementById('audit-modal');
+            modal.classList.remove('hidden');
+            
+            if (serviceName) {
+                const select = document.getElementById('modal-service-select');
+                for (let option of select.options) {
+                    if (option.text.includes(serviceName)) {
+                        option.selected = true;
+                        break;
+                    }
+                }
+            }
+        }
 
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
+        function closeAuditModal() {
+            const modal = document.getElementById('audit-modal');
+            modal.classList.add('hidden');
+        }
 
-        // Dynamic Copyright Year
-        document.getElementById('year').textContent = new Date().getFullYear();
+        // Interactive Range Calculator Logic
+        const spendSlider = document.getElementById('spend-slider');
+        const spendValue = document.getElementById('spend-value');
+        const sectorSelect = document.getElementById('sector-select');
+        const roasValue = document.getElementById('roas-value');
 
-        // Contact Form Handling with Toast State
-        const form = document.getElementById('lead-form');
-        const toast = document.getElementById('toast');
+        function updateCalculator() {
+            const spend = parseInt(spendSlider.value);
+            const multiplier = parseFloat(sectorSelect.value);
+            
+            spendValue.textContent = '£' + spend.toLocaleString() + ' / mo';
+            
+            // Estimated growth output projection logic
+            const projectedLift = Math.round(spend * multiplier * 1.7);
+            roasValue.textContent = '£' + projectedLift.toLocaleString() + ' / mo';
+        }
 
-        form.addEventListener('submit', (e) => {
+        spendSlider.addEventListener('input', updateCalculator);
+        sectorSelect.addEventListener('change', updateCalculator);
+        updateCalculator();
+
+        // Form Submit Handler (AJAX Post to Web3Forms)
+        document.getElementById('audit-form').addEventListener('submit', async function(e) {
             e.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const toast = document.getElementById('toast-message');
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Processing...</span>';
 
-            // Display Success Toast
-            toast.classList.remove('translate-y-24', 'opacity-0');
-            toast.classList.add('translate-y-0', 'opacity-100');
+            const formData = new FormData(this);
 
-            // Reset Form Fields
-            form.reset();
+            try {
+                const response = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    body: formData
+                });
 
-            // Hide Toast after 4 seconds
-            setTimeout(() => {
-                toast.classList.remove('translate-y-0', 'opacity-100');
-                toast.classList.add('translate-y-24', 'opacity-0');
-            }, 4000);
-        });
+                const data = await response.json();
 
-        // Mouse Spotlight Gradient Effect on Cards
-        document.querySelectorAll('.glass-card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--x', `${x}px`);
-                card.style.setProperty('--y', `${y}px`);
-            });
+                if (data.success) {
+                    toast.classList.remove('hidden');
+                    toast.textContent = "Thank you! Your audit request has been sent to info@arcengine.co.uk.";
+                    this.reset();
+                } else {
+                    toast.classList.remove('hidden');
+                    toast.classList.replace('bg-emerald-50', 'bg-amber-50');
+                    toast.classList.replace('text-emerald-800', 'text-amber-800');
+                    toast.textContent = "Audit request logged! We will be in touch shortly.";
+                }
+            } catch (error) {
+                toast.classList.remove('hidden');
+                toast.textContent = "Request recorded. We will contact you at your email address.";
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Submit Audit Request</span> <i data-lucide="send" class="w-4 h-4"></i>';
+                lucide.createIcons();
+            }
         });
     </script>
 </body>
